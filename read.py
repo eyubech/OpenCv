@@ -1,6 +1,11 @@
 import cv2 as cv
 
-img = cv.imread("Photos/cat.jpg")
-cv.imshow('cat', img)
+capture = cv.VideoCapture('Videos/dog.mp4')
+while True:
+    isTrue, frame = capture.read()
+    cv.imshow('video', frame)
+    if cv.waitKey(20) & 0xFF==ord('d'):
+        break
 
-cv.waitKey(0)
+capture.release()
+cv.destroyAllWindows()
